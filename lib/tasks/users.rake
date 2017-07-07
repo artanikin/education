@@ -8,10 +8,9 @@ namespace :users do
       return {
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
-        email: Faker::Internet.email,
+        email: Faker::Internet.safe_email,
         password: '123',
-        password_confirmation: '123',
-        role: 'user'
+        password_confirmation: '123'
       }
     end
 
