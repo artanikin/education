@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title Education
+    = csrf_meta_tags
+
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload"
+    = javascript_include_tag "application", "data-turbolinks-track": "reload"
+
+  body
+    = nav_bar brand: "Education", responsive: true do
+      = menu_group pull: :right do
+        - if current_user
+          = menu_text "#{current_user.first_name} #{current_user.last_name[0]}."
+          = menu_divider
+          = menu_item "Sign out", destroy_users_session_path, method: :delete
+        - else
+          = menu_item "Sign in", new_users_session_path
+          = menu_divider
+          = menu_item "Sign up", new_users_path
+
+    .container
+      .row
+        = bootstrap_flash
+        = yield
