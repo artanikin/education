@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   scope module: "web" do
     root "users#new"
 
+    resources :groups, except: [:show]
+
     resource :users, only: [:new, :create], path_names: { new: "sign_up" } do
       resource :session, only: [], path: "" do
         get :new, path: "sign_in", as: :new
