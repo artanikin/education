@@ -11,6 +11,8 @@ html
     = nav_bar brand: "Education", responsive: true do
       = menu_group do
         = menu_item "Groups", groups_path
+        = menu_divider
+        = menu_item "Tests", tests_path
 
       = menu_group pull: :right do
         - if current_user

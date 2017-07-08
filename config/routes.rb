@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     root "users#new"
 
     resources :groups, except: [:show]
+    resources :tests
 
     resource :users, only: [:new, :create], path_names: { new: "sign_up" } do
       resource :session, only: [], path: "" do
