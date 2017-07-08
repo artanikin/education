@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170708204220) do
+ActiveRecord::Schema.define(version: 20170708211859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20170708204220) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "education_materials", force: :cascade do |t|
+    t.integer  "course_id"
+    t.integer  "material_id"
+    t.string   "material_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["course_id"], name: "index_education_materials_on_course_id", using: :btree
+    t.index ["material_id", "material_type"], name: "index_education_materials_on_material_id_and_material_type", using: :btree
   end
 
   create_table "groups", force: :cascade do |t|
@@ -55,6 +65,7 @@ ActiveRecord::Schema.define(version: 20170708204220) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "education_materials", "courses"
   add_foreign_key "groups_users", "groups"
   add_foreign_key "groups_users", "users"
 end

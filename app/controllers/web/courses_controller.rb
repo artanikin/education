@@ -1,8 +1,12 @@
 class Web::CoursesController < Web::ApplicationController
-  before_action :set_course, only: [:edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_tests, only: [:new, :edit]
 
   def index
     @courses = Course.all
+  end
+
+  def show
   end
 
   def new
@@ -43,5 +47,9 @@ class Web::CoursesController < Web::ApplicationController
 
   def set_course
     @course = Course.find(params[:id])
+  end
+
+  def set_tests
+    @tests = Test.all
   end
 end
