@@ -1,6 +1,10 @@
 = simple_form_for @education_program do |f|
   = f.input :title, autofocus: true
   = f.input :description
+  fieldset
+    legend Students
+    = f.association :groups, as: :select, multiple: true, collection: @groups.map{ |g| [g.title, g.id] }, input_html: { class: "chosen-select" }
+    = f.association :users, as: :select, multiple: true, collection: @users.map{ |u| [u.short_name, u.id] }, input_html: { class: "chosen-select" }
 
   = f.button :submit, "Save", class: "btn-primary"
 

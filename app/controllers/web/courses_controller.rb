@@ -42,7 +42,7 @@ class Web::CoursesController < Web::ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:title, :description)
+    params.require(:course).permit(:title, :description, test_ids: [])
   end
 
   def set_course
