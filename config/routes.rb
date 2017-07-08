@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
     resources :groups, except: [:show]
     resources :tests
+    resources :courses, expect: [:show]
 
     resource :users, only: [:new, :create], path_names: { new: "sign_up" } do
       resource :session, only: [], path: "" do
