@@ -10,6 +10,8 @@ html
   body
     = nav_bar brand: "Education", responsive: true do
       = menu_group do
+        = menu_item "Education Programs", education_programs_path
+        = menu_divider
         = menu_item "Groups", groups_path
         = menu_divider
         = menu_item "Courses", courses_path
