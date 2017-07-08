@@ -6,5 +6,10 @@
     = f.association :groups, as: :select, multiple: true, collection: @groups.map{ |g| [g.title, g.id] }, input_html: { class: "chosen-select" }
     = f.association :users, as: :select, multiple: true, collection: @users.map{ |u| [u.short_name, u.id] }, input_html: { class: "chosen-select" }
 
+  fieldset
+    legend Assignments
+    = f.association :courses, as: :select, multiple: true, collection: @cources.map{ |c| [c.title, c.id] }, input_html: { class: "chosen-select" }
+    = f.association :tests, as: :select, multiple: true, collection: @tests.map{ |t| [t.title, t.id] }, input_html: { class: "chosen-select" }
+
   = f.button :submit, "Save", class: "btn-primary"
 

@@ -2,6 +2,8 @@ class Web::EducationProgramsController < Web::ApplicationController
   before_action :set_education_program, only: [:show, :edit, :update, :destroy]
   before_action :set_users, only: [:new, :edit]
   before_action :set_groups, only: [:new, :edit]
+  before_action :set_tests, only: [:new, :edit]
+  before_action :set_cources, only: [:new, :edit]
 
   def index
     @education_programs = EducationProgram.all
@@ -43,7 +45,8 @@ class Web::EducationProgramsController < Web::ApplicationController
   private
 
   def education_program_params
-    params.require(:education_program).permit(:title, :description, user_ids: [], group_ids: [])
+    params.require(:education_program)
+      .permit(:title, :description, user_ids: [], group_ids: [], test_ids: [], course_ids: [])
   end
 
   def set_education_program
@@ -56,6 +59,14 @@ class Web::EducationProgramsController < Web::ApplicationController
 
   def set_groups
     @groups = Group.all
+  end
+
+  def set_tests
+    @tests = Test.all
+  end
+
+  def set_cources
+    @cources = Course.all
   end
 end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170708221159) do
+ActiveRecord::Schema.define(version: 20170708225536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20170708221159) do
     t.datetime "updated_at",    null: false
     t.index ["course_id"], name: "index_education_materials_on_course_id", using: :btree
     t.index ["material_id", "material_type"], name: "index_education_materials_on_material_id_and_material_type", using: :btree
+  end
+
+  create_table "education_program_assignments", force: :cascade do |t|
+    t.integer  "education_program_id"
+    t.integer  "assignment_id"
+    t.string   "assignment_type"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["assignment_id", "assignment_type"], name: "edp_assignments", using: :btree
+    t.index ["education_program_id"], name: "index_education_program_assignments_on_education_program_id", using: :btree
   end
 
   create_table "education_program_students", force: :cascade do |t|
@@ -83,6 +93,7 @@ ActiveRecord::Schema.define(version: 20170708221159) do
   end
 
   add_foreign_key "education_materials", "courses"
+  add_foreign_key "education_program_assignments", "education_programs"
   add_foreign_key "education_program_students", "education_programs"
   add_foreign_key "groups_users", "groups"
   add_foreign_key "groups_users", "users"
