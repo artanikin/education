@@ -54,7 +54,7 @@ class Web::EducationProgramsController < Web::ApplicationController
   end
 
   def set_users
-    @users = User.all
+    @users = User.all.decorate
   end
 
   def set_groups

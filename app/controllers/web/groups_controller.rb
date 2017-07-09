@@ -47,6 +47,6 @@ class Web::GroupsController < Web::ApplicationController
   end
 
   def set_users
-    @users = User.all.order(:last_name)
+    @users = User.all.order(:last_name).decorate
   end
 end

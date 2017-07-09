@@ -5,8 +5,4 @@ class User < ApplicationRecord
   has_many :groups, through: :groups_users
 
   has_secure_password
-
-  def short_name
-    "#{last_name} #{first_name[0]}."
-  end
 end

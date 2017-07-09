@@ -23,7 +23,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "twitter-bootstrap-rails"
 gem "slim-rails"
 gem "simple_form"
-gem "cocoon"
+gem 'draper'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
