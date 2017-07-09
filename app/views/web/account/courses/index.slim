@@ -1,0 +1,12 @@
+.row
+  .col-md-6
+    h1 Your Courses
+
+    - if @courses.any?
+      table.table.table-striped
+        tbody
+          - @courses.each do |course|
+            tr
+              td= link_to course.title, [:account, course]
+    - else
+      h3 You are not added to any courses

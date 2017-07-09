@@ -10,7 +10,9 @@ html
   body
     = nav_bar brand: "Education", responsive: true do
       = menu_group do
-        = menu_item "Your Programs", account_education_programs_path if current_user
+        - if current_user
+          = menu_item "Your Programs", account_education_programs_path
+          = menu_item "Courses", account_courses_path
 
       = menu_group pull: :right do
         - if current_user

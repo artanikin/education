@@ -1,0 +1,12 @@
+.row
+  .col-md-6
+    h1= @course.title
+    div= @course.description
+
+- if @course.tests.any?
+  .row
+    .col-md-6
+      h3 Tests
+      ol
+        - @course.tests.each do |test|
+          li= test.title
