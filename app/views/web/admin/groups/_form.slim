@@ -1,4 +1,4 @@
-= simple_form_for [:admin, @group] do |f|
+= simple_form_for [:admin, @group], validate: true do |f|
   = f.input :title, autofocus: true
   = f.association :users, as: :select, multiple: true, collection: @users.map{ |u| [u.short_name, u.id] }, input_html: { class: "chosen-select" }
 

@@ -1,4 +1,4 @@
-= simple_form_for [:admin, @test] do |f|
+= simple_form_for [:admin, @test], validate: true do |f|
   = f.input :title, autofocus: true
   = f.input :description
 

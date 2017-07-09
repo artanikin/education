@@ -1,4 +1,4 @@
-= simple_form_for [:admin, @education_program] do |f|
+= simple_form_for [:admin, @education_program], validate: true do |f|
   = f.input :title, autofocus: true
   = f.input :description
   fieldset
