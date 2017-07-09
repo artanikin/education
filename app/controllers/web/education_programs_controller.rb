@@ -6,40 +6,30 @@ class Web::EducationProgramsController < Web::ApplicationController
   before_action :set_cources, only: [:new, :edit]
 
   def index
-    @education_programs = EducationProgram.all
+    respond_with(@education_programs = EducationProgram.all)
   end
 
   def show
   end
 
   def new
-    @education_program = EducationProgram.new
+    respond_with(@education_program = EducationProgram.new)
   end
 
   def create
-    @education_program = EducationProgram.new(education_program_params)
-
-    if @education_program.save
-      redirect_to education_programs_path, notice: "Education Program was successfully created"
-    else
-      render :new
-    end
+    respond_with(@education_program = EducationProgram.create(education_program_params), location: -> { education_programs_path })
   end
 
   def edit
   end
 
   def update
-    if @education_program.update(education_program_params)
-      redirect_to education_program_path, notice: "Education Program was successfully updated"
-    else
-      render :edit
-    end
+    @education_program.update(education_program_params)
+    respond_with(@education_program, location: -> { education_programs_path })
   end
 
   def destroy
-    @education_program.destroy
-    redirect_to education_programs_path, notice: "Education Program was successfully destroyed"
+    respond_with(@education_program.destroy, location: -> { education_programs_path })
   end
 
   private
