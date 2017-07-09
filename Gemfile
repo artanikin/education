@@ -28,6 +28,8 @@ gem "responders"
 gem "client_side_validations"
 gem "client_side_validations-simple_form"
 
+gem "faker"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -40,7 +42,6 @@ group :development do
   gem "listen", "~> 3.0.5"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
-  gem "faker"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
