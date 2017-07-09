@@ -6,7 +6,7 @@ class Web::SessionsController < Web::ApplicationController
     user = User.find_by_email(session_params[:email])
     if user.try(:authenticate, session_params[:password])
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to account_root_path
     else
       render :new
     end

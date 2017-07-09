@@ -23,7 +23,6 @@ gem "bcrypt", "~> 3.1.7"
 gem "twitter-bootstrap-rails"
 gem "slim-rails"
 gem "simple_form"
-gem "cancancan"
 gem "draper"
 gem "responders"
 

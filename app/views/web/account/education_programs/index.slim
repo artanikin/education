@@ -1,0 +1,12 @@
+.row
+  .col-md-6
+    h1 Your Education Programs
+
+    - if @education_programs.any?
+      table.table.table-striped
+        tbody
+          - @education_programs.each do |education_program|
+            tr
+              td= link_to education_program.title, [:account, education_program]
+    - else
+      h3 You are not added to any educational program

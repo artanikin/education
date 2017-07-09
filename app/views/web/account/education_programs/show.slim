@@ -1,0 +1,18 @@
+.row
+  .col-md-6
+    h1= @education_program.title
+    div= @education_program.description
+.row
+  .col-md-6
+    h2 Assignments
+    - if @education_program.courses.any?
+      h3 Courses
+      ol
+        - @education_program.courses.each do |course|
+          li= course.title
+
+    - if @education_program.tests.any?
+      h3 Tests
+      ol
+        - @education_program.tests.each do |test|
+          li= test.title

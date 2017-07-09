@@ -14,12 +14,18 @@ Rails.application.routes.draw do
     end
 
     namespace :admin do
-      root "users#new"
+      root "education_programs#index"
 
       resources :groups
       resources :tests
       resources :courses
       resources :education_programs
+    end
+
+    namespace :account do
+      root "education_programs#index"
+
+      resources :education_programs, only: [:index, :show]
     end
 
   end

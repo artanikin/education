@@ -20,7 +20,7 @@ html
 
       = menu_group pull: :right do
         - if current_user
-          = menu_text current_user.short_name
+          = menu_item current_user.short_name, account_root_path
           = menu_divider
           = menu_item "Sign out", destroy_users_session_path, method: :delete
         - else
