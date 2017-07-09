@@ -3,40 +3,30 @@ class Web::CoursesController < Web::ApplicationController
   before_action :set_tests, only: [:new, :edit]
 
   def index
-    @courses = Course.all
+    respond_with(@courses = Course.all)
   end
 
   def show
   end
 
   def new
-    @course = Course.new
+    respond_with(@course = Course.new)
   end
 
   def create
-    @course = Course.new(course_params)
-
-    if @course.save
-      redirect_to courses_path, notice: "Course was successfully created"
-    else
-      render :new
-    end
+    respond_with(@course = Course.create(course_params), location: -> { courses_path })
   end
 
   def edit
   end
 
   def update
-    if @course.update(course_params)
-      redirect_to courses_path, notice: "Course was successfully created"
-    else
-      render :edit
-    end
+    @course.update(course_params)
+    respond_with(@course, location: -> { courses_path })
   end
 
   def destroy
-    @course.destroy
-    redirect_to courses_path, notice: "Course successfully deleted"
+    respond_with(@course.destroy)
   end
 
   private
