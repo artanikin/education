@@ -2,7 +2,7 @@
   .col-md-6
     h1 Education Programs
 
-    = link_to "New", new_education_program_path, class: "btn btn-primary"
+    = link_to "New", new_admin_education_program_path, class: "btn btn-primary"
 
     - if @education_programs.any?
       table.table.table-striped
@@ -13,10 +13,10 @@
         tbody
           - @education_programs.each do |education_program|
             tr
-              td= link_to education_program.title, education_program
+              td= link_to education_program.title, [:admin, education_program]
               td
-                => link_to "Edit", edit_education_program_path(education_program), class: "btn btn-primary btn-xs"
-                = link_to "Destroy", education_program_path(education_program), method: :delete,
+                => link_to "Edit", edit_admin_education_program_path(education_program), class: "btn btn-primary btn-xs"
+                = link_to "Destroy", admin_education_program_path(education_program), method: :delete,
                   data: { confirm: "Are you sure?" }, class: "btn btn-primary btn-xs"
     - else
       h3 No education program. Please create one

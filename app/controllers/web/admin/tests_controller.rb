@@ -1,4 +1,4 @@
-class Web::TestsController < Web::ApplicationController
+class Web::Admin::TestsController < Web::Admin::ApplicationController
   before_action :set_test, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -13,7 +13,7 @@ class Web::TestsController < Web::ApplicationController
   end
 
   def create
-    respond_with(@test = Test.create(test_params), location: -> { tests_path })
+    respond_with(@test = Test.create(test_params), location: -> { admin_tests_path })
   end
 
   def edit
@@ -21,11 +21,11 @@ class Web::TestsController < Web::ApplicationController
 
   def update
     @test.update(test_params)
-    respond_with(@test, location: -> { tests_path })
+    respond_with(@test, location: -> { admin_tests_path })
   end
 
   def destroy
-    respond_with(@test.destroy, location: -> { tests_path })
+    respond_with(@test.destroy, location: -> { admin_tests_path })
   end
 
   private

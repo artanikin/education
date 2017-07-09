@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   scope module: "web" do
-    root "users#new"
 
-    resources :groups
-    resources :tests
-    resources :courses
-    resources :education_programs
+    root "informations#index"
+
+    get "/", to: "informations#index", as: "home"
 
     resource :users, only: [:new, :create], path_names: { new: "sign_up" } do
       resource :session, only: [], path: "" do
@@ -13,6 +11,15 @@ Rails.application.routes.draw do
         post :create, path: "sign_in"
         delete :destroy, path: "sign_out", as: :destroy
       end
+    end
+
+    namespace :admin do
+      root "users#new"
+
+      resources :groups
+      resources :tests
+      resources :courses
+      resources :education_programs
     end
 
   end

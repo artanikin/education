@@ -1,0 +1,14 @@
+.row
+  .col-md-6
+    h1 Courses
+    - if @courses.any?
+      ol
+        - @courses.each do |course|
+          li= course.title
+
+  .col-md-6
+    h1 Tests
+    - if @tests.any?
+      ol
+        - @tests.each do |test|
+          li= test.title

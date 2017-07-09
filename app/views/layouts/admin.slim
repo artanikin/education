@@ -8,15 +8,15 @@ html
     = javascript_include_tag "application", "data-turbolinks-track": "reload"
 
   body
-    = nav_bar brand: "Education", responsive: true do
+    = nav_bar brand: "Education Admin Panel", responsive: true, inverse: true do
       = menu_group do
-        / = menu_item "Education Programs", education_programs_path
-        / = menu_divider
-        / = menu_item "Groups", groups_path
-        / = menu_divider
-        / = menu_item "Courses", courses_path
-        / = menu_divider
-        / = menu_item "Tests", tests_path
+        = menu_item "Education Programs", admin_education_programs_path
+        = menu_divider
+        = menu_item "Groups", admin_groups_path
+        = menu_divider
+        = menu_item "Courses", admin_courses_path
+        = menu_divider
+        = menu_item "Tests", admin_tests_path
 
       = menu_group pull: :right do
         - if current_user

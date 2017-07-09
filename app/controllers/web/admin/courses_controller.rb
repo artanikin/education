@@ -1,4 +1,4 @@
-class Web::CoursesController < Web::ApplicationController
+class Web::Admin::CoursesController < Web::Admin::ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   before_action :set_tests, only: [:new, :edit]
 
@@ -14,7 +14,7 @@ class Web::CoursesController < Web::ApplicationController
   end
 
   def create
-    respond_with(@course = Course.create(course_params), location: -> { courses_path })
+    respond_with(@course = Course.create(course_params), location: -> { admin_courses_path })
   end
 
   def edit
@@ -22,7 +22,7 @@ class Web::CoursesController < Web::ApplicationController
 
   def update
     @course.update(course_params)
-    respond_with(@course, location: -> { courses_path })
+    respond_with(@course, location: -> { admin_courses_path })
   end
 
   def destroy

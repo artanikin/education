@@ -2,7 +2,7 @@
   .col-md-6
     h1 Courses
 
-    = link_to "New", new_course_path, class: "btn btn-primary"
+    = link_to "New", new_admin_course_path, class: "btn btn-primary"
 
     - if @courses.any?
       table.table.table-striped
@@ -13,10 +13,10 @@
         tbody
           - @courses.each do |course|
             tr
-              td= link_to course.title, course
+              td= link_to course.title, [:admin, course]
               td
-                => link_to "Edit", edit_course_path(course), class: "btn btn-primary btn-xs"
-                = link_to "Destroy", course_path(course), method: :delete,
+                => link_to "Edit", edit_admin_course_path(course), class: "btn btn-primary btn-xs"
+                = link_to "Destroy", admin_course_path(course), method: :delete,
                   data: { confirm: "Are you sure?" }, class: "btn btn-primary btn-xs"
     - else
       h3 No courses. Create one

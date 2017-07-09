@@ -7,4 +7,4 @@
       h3 Tests
       ol
         - @course.tests.each do |test|
-          li= link_to test.title, test
+          li= link_to test.title, [:admin, test]

@@ -1,4 +1,4 @@
-class Web::GroupsController < Web::ApplicationController
+class Web::Admin::GroupsController < Web::Admin::ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
   before_action :set_users, only: [:new, :edit]
 
@@ -14,7 +14,7 @@ class Web::GroupsController < Web::ApplicationController
   end
 
   def create
-    respond_with(@group = Group.create(group_params), location: -> { groups_path })
+    respond_with(@group = Group.create(group_params), location: -> { admin_groups_path })
   end
 
   def edit
@@ -22,11 +22,11 @@ class Web::GroupsController < Web::ApplicationController
 
   def update
     @group.update(group_params)
-    respond_with(@group, location: -> { groups_path })
+    respond_with(@group, location: -> { admin_groups_path })
   end
 
   def destroy
-    respond_with(@group.destroy, location: -> { groups_path })
+    respond_with(@group.destroy, location: -> { admin_groups_path })
   end
 
   private
