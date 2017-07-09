@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
       resources :education_programs, only: [:index, :show]
       resources :courses, only: [:index, :show]
+      resources :tests, only: [:index, :show]
     end
 
   end

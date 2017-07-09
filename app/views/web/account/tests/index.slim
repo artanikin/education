@@ -1,0 +1,12 @@
+.row
+  .col-md-6
+    h1 Your Tests
+
+    - if @tests.any?
+      table.table.table-striped
+        tbody
+          - @tests.each do |test|
+            tr
+              td= link_to test.title, [:account, test]
+    - else
+      h3 You are not added to any tests
