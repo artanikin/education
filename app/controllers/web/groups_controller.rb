@@ -1,39 +1,32 @@
 class Web::GroupsController < Web::ApplicationController
-  before_action :set_group, only: [:edit, :update, :destroy]
+  before_action :set_group, only: [:show, :edit, :update, :destroy]
   before_action :set_users, only: [:new, :edit]
 
   def index
-    @groups = Group.all
+    respond_with(@groups = Group.all)
+  end
+
+  def show
   end
 
   def new
-    @group = Group.new
+    respond_with(@group = Group.new)
   end
 
   def create
-    @group = Group.new(group_params)
-
-    if @group.save
-      redirect_to groups_path, notice: "Group was successfully created"
-    else
-      render :new
-    end
+    respond_with(@group = Group.create(group_params), location: -> { groups_path })
   end
 
   def edit
   end
 
   def update
-    if @group.update(group_params)
-      redirect_to groups_path, notice: "Group was successfully created"
-    else
-      render :edit
-    end
+    @group.update(group_params)
+    respond_with(@group, location: -> { groups_path })
   end
 
   def destroy
-    @group.destroy
-    redirect_to groups_path, notice: "Group successfully deleted"
+    respond_with(@group.destroy, location: -> { groups_path })
   end
 
   private

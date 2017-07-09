@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   scope module: "web" do
     root "users#new"
 
-    resources :groups, except: [:show]
+    resources :groups
     resources :tests
     resources :courses
     resources :education_programs

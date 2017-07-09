@@ -12,7 +12,7 @@
       tbody
         - @groups.each do |group|
           tr
-            td= group.title
+            td= link_to group.title, group
             td
               => link_to "Edit", edit_group_path(group), class: "btn btn-primary btn-xs"
               = link_to "Destroy", group_path(group), method: :delete,
