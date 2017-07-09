@@ -25,6 +25,8 @@ gem "slim-rails"
 gem "simple_form"
 gem "draper"
 gem "responders"
+gem "client_side_validations"
+gem "client_side_validations-simple_form"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
