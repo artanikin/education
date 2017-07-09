@@ -13,8 +13,7 @@ class Web::SessionsController < Web::ApplicationController
   end
 
   def destroy
-    session.delete(:user_id)
-    redirect_to root_path
+    respond_with(session.delete(:user_id), location: -> { root_path })
   end
 
   private
