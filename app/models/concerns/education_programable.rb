@@ -1,4 +1,4 @@
-module EducationProgramable
+module EducationProgramAssignmentable
   extend ActiveSupport::Concern
 
   included do
