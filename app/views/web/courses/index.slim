@@ -15,7 +15,7 @@
             tr
               td= link_to course.title, course
               td
-                = link_to "Edit", edit_course_path(course), class: "btn btn-primary btn-xs"
+                => link_to "Edit", edit_course_path(course), class: "btn btn-primary btn-xs"
                 = link_to "Destroy", course_path(course), method: :delete,
                   data: { confirm: "Are you sure?" }, class: "btn btn-primary btn-xs"
     - else

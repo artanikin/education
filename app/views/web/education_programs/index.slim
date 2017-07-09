@@ -15,7 +15,7 @@
             tr
               td= link_to education_program.title, education_program
               td
-                = link_to "Edit", edit_education_program_path(education_program), class: "btn btn-primary btn-xs"
+                => link_to "Edit", edit_education_program_path(education_program), class: "btn btn-primary btn-xs"
                 = link_to "Destroy", education_program_path(education_program), method: :delete,
                   data: { confirm: "Are you sure?" }, class: "btn btn-primary btn-xs"
     - else

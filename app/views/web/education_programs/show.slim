@@ -2,7 +2,7 @@
   .col-md-6
     h1= @education_program.title
     div= @education_program.description
-    = link_to "Edit", edit_education_program_path(@education_program), class: "btn btn-primary"
+    => link_to "Edit", edit_education_program_path(@education_program), class: "btn btn-primary"
     = link_to "New", new_education_program_path, class: "btn btn-primary"
 .row
   .col-md-6
