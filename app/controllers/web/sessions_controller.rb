@@ -1,5 +1,6 @@
 class Web::SessionsController < Web::ApplicationController
-  def new; end
+  def new
+  end
 
   def create
     user = User.find_by_email(session_params[:email])
